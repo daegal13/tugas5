@@ -1,0 +1,54 @@
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    color: white;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+textarea {
+    width: 60%;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.chart-box {
+    width: 300px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.history {
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}

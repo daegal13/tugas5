@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Sentimen E-Wallet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>💳 Dashboard Sentimen E-Wallet</h1>
+
+    <!-- INPUT -->
+    <form method="POST">
+        <textarea name="teks" placeholder="Masukkan komentar..." required></textarea>
+        <button type="submit">🔍 Analisis</button>
+    </form>
+
+    <!-- HASIL -->
+    {% if hasil %}
+    <div class="result" style="color: {{ warna }}">
+        Hasil: {{ hasil }} <br>
+        <small>Confidence: {{ confidence }}%</small>
+    </div>
+    {% endif %}
+
+    <!-- CHART -->
+    <div class="chart-box">
+        <canvas id="chart"></canvas>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="history">
+        <h3>📜 Riwayat</h3>
+        {% for h in history %}
+            <div class="card">
+                <p>{{ h.teks }}</p>
+                <b>{{ h.hasil }} ({{ h.confidence }}%)</b>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<script>
+const ctx = document.getElementById('chart');
+
+new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Negatif', 'Netral', 'Positif'],
+        datasets: [{
+            data: [{{ neg }}, {{ net }}, {{ pos }}]
+        }]
+    }
+});
+</script>
+
+</body>
+</html>
